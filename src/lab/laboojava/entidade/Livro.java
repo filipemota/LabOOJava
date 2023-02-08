@@ -2,10 +2,6 @@ package lab.laboojava.entidade;
 
 import lab.laboojava.entidade.constantes.Genero;
 
-/**
- * Classe que representa um livro, qual é uma especialização de um produto da loja.
- * @author thiago leite
- */
 public class Livro extends Produto {
 
     private String nome;

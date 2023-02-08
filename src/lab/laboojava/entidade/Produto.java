@@ -1,15 +1,10 @@
 package lab.laboojava.entidade;
 
 public abstract class Produto {
-    
     private String codigo;
-
     private double preco;
-
     private int quantidade;
-
     public Produto() {}
-
     public String getCodigo() {
         return codigo;
     }

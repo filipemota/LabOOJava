@@ -1,20 +1,9 @@
 package lab.laboojava.entidade;
 
-/**
- * Classe que representa a entidade cupom. Este pode ser utilizado no ato do fechamento do pedido
- * para obter um desconto, caso desejado.
- * @author thiago leite
- */
 public class Cupom {
 
-    /**
-     * Código descritivo do cupom.
-     */
     private String codigo;
 
-    /**
-     * Valor em porcentagem do desconto.
-     */
     private int desconto;
 
     /**

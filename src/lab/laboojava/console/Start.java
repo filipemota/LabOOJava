@@ -15,35 +15,30 @@ import java.util.Optional;
 public class Start {
 
     private static Cliente clienteLogado = null;
-
     private static Banco banco = new Banco();
-
     private static ClienteNegocio clienteNegocio = new ClienteNegocio(banco);
     private static PedidoNegocio pedidoNegocio = new PedidoNegocio(banco);
     private static ProdutoNegocio produtoNegocio = new ProdutoNegocio(banco);
 
-    /**
-     * Método utilitário para inicializar a aplicação.
-     * @param args Parâmetros que podem ser passados para auxiliar na execução.
-     */
     public static void main(String[] args) {
-
+        System.out.println("###########################");
         System.out.println("Bem vindo ao e-Compras");
+        System.out.println("###########################");
 
         String opcao = "";
 
         while(true) {
 
             if (clienteLogado == null) {
-
+                System.out.println(" ");
                 System.out.println("Digite o cpf:");
-
+                System.out.println("#------------------#");
                 String cpf = "";
                 cpf = LeitoraDados.lerDado();
-
                 identificarUsuario(cpf);
             }
 
+            System.out.println("##########################");
             System.out.println("Selecione uma opção:");
             System.out.println("1 - Cadastrar Livro");
             System.out.println("2 - Excluir Livro");
@@ -58,6 +53,7 @@ public class Start {
             System.out.println("8 - Listar pedidos");
             System.out.println("9 - Deslogar");
             System.out.println("10 - Sair");
+            System.out.println("##########################");
 
             opcao = LeitoraDados.lerDado();
 
@@ -113,10 +109,7 @@ public class Start {
         }
     }
 
-    /**
-     * Procura o usuário na base de dados.
-     * @param cpf CPF do usuário que deseja logar na aplicação
-     */
+
     private static void identificarUsuario(String cpf) {
 
         Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
