@@ -5,6 +5,7 @@ public abstract class Produto {
     private double preco;
     private int quantidade;
     public Produto() {}
+
     public String getCodigo() {
         return codigo;
     }

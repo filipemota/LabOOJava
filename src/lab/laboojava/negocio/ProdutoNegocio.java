@@ -56,12 +56,10 @@ public class ProdutoNegocio {
     public Optional<Produto> consultar(String codigo) {
 
         for (Produto produto: bancoDados.getProdutos()) {
-
             if (produto.getCodigo().equalsIgnoreCase(codigo)) {
                 return  Optional.of(produto);
             }
         }
-
         return Optional.empty();
     }
 

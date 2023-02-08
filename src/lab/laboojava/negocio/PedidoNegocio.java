@@ -7,6 +7,7 @@ import lab.laboojava.entidade.Produto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public class PedidoNegocio {
 
@@ -72,11 +73,30 @@ public class PedidoNegocio {
         if (bancoDados.getPedidos().length == 0) {
             System.out.println("Não existem pedidos cadastrados");
         } else {
-
             for (Pedido pedidos : bancoDados.getPedidos()) {
                 System.out.println(pedidos.toString());
             }
         }
     }
 
+    private Pedido buscaPedido(String codigo) {
+        for (Pedido pedido : bancoDados.getPedidos()) {
+            if (pedido.getCodigo().equalsIgnoreCase(codigo)) return pedido;
+        }
+        return null;
+    }
+
+    public void consultar(String codigo) {
+        Pedido pedido = buscaPedido(codigo);
+        if (pedido == null) {
+            System.out.println("Pedido Não encontrado");
+        } else {
+            System.out.println("Pedido encontrado!");
+            System.out.println(pedido);
+        }
+    }
+
 }
+
+
+

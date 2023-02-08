@@ -5,13 +5,17 @@ import java.util.List;
 public class Pedido {
 
     private String codigo;
+
     private Cliente cliente;
+
     private List<Produto> produtos;
+
     private double total;
 
     public Pedido(){
         this.produtos = new ArrayList<>();
     }
+
     public String getCodigo() {
         return codigo;
     }
