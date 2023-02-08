@@ -17,19 +17,12 @@ import java.util.Scanner;
  */
 public final class LeitoraDados {
 
-	/**
-	 * Classe do Java para manipular entradas via teclado.
-	 */
 	private static Scanner scanner;
 	
 	static {
 		scanner = new Scanner(System.in);
 	}
 
-	/**
-	 * Ler um dado específico
-	 * @return Dado lido
-	 */
 	public static String lerDado() {
 		
 		String texto = scanner.nextLine();
@@ -37,10 +30,6 @@ public final class LeitoraDados {
 		return texto;
 	}
 
-	/**
-	 * Ler os dados do livro a ser cadastrado.
-	 * @return Um livro a partir dos dados de entrada
-	 */
 	public static Livro lerLivro() {
 
 		System.out.println("Cadastrando livro...");

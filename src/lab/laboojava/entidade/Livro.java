@@ -8,14 +8,8 @@ import lab.laboojava.entidade.constantes.Genero;
  */
 public class Livro extends Produto {
 
-    /**
-     * Nome do livro.
-     */
     private String nome;
 
-    /**
-     * Gênero do livro.
-     */
     private Genero genero;
 
     public String getNome() {
@@ -34,9 +28,6 @@ public class Livro extends Produto {
         this.genero = genero;
     }
 
-    /**
-     * {@inheritDoc}.
-     */
     @Override
     public double calcularFrete() {
         return (getPreco() * getQuantidade()) * (1 + genero.getFator());

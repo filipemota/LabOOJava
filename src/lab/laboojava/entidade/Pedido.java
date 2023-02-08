@@ -53,6 +53,8 @@ public class Pedido {
             produtos.append(produto.getQuantidade());
             produtos.append(" ");
         }
+        produtos.append(" ");
+        return produtos.toString();
     }
     @Override
     public String toString(){
