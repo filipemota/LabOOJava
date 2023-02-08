@@ -8,31 +8,13 @@ import lab.laboojava.entidade.Cupom;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe responsável por simular um banco de dados. Esta faz as inserções e exclusões da
- * aplicação. Atualizações não são permitidas para facilitar o funcionamento da aplicação.
- * @author thiago leite
- */
 public class Banco {
-
-    /**
-     * Lista que armazena os produtos(livros e cadernos) cadastrados.
-     */
     private List<Produto> produtos;
 
-    /**
-     * Lista que armazena os pedidos cadastrados.
-     */
     private List<Pedido> pedidos;
 
-    /**
-     * Lista que armazena os cupons disponíveis.
-     */
     private List<Cupom> cupons;
 
-    /**
-     * Cliente cadastrado.
-     */
     private Cliente cliente;
 
     public Banco() {

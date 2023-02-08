@@ -3,14 +3,8 @@ package lab.laboojava.entidade;
 public class Cupom {
 
     private String codigo;
-
     private int desconto;
 
-    /**
-     * Construtor do cupom
-     * @param codigo Código do cupom
-     * @param desconto Porcentagem de desconto
-     */
     public Cupom(String codigo, int desconto) {
         this.codigo = codigo;
         this.desconto = desconto;

@@ -1,20 +1,14 @@
 package lab.laboojava.utilidade;
 
 import lab.laboojava.basedados.Banco;
-import lab.laboojava.entidade.Cupom;
-import lab.laboojava.entidade.Livro;
-import lab.laboojava.entidade.Pedido;
-import lab.laboojava.entidade.Produto;
+import lab.laboojava.entidade.*;
+import lab.laboojava.entidade.constantes.Materias;
 import lab.laboojava.negocio.ProdutoNegocio;
 import lab.laboojava.entidade.constantes.Genero;
 
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Classe utilitária para auxiliar na leitura de entradas de dados via teclado.
- * @author thiago leite
- */
 public final class LeitoraDados {
 
 	private static Scanner scanner;
@@ -50,16 +44,26 @@ public final class LeitoraDados {
 		return livro;
 	}
 
-	/**
-	 * Ler os dados do caderno a ser cadastrado.
-	 * @return Um caderno a partir dos dados de entrada
-	 */
-	//TODO Método para ler o caderno
+	public static Caderno lerCaderno() {
 
-	/**
-	 * Ler os dados do pedido e retorna um objeto a partir destes.
-	 * @return Um pedido a partir dos dados de entrada
-	 */
+		System.out.println("Cadastrando Caderno...");
+		Caderno caderno = new Caderno();
+
+		System.out.println("Digite o nome");
+		String nome = lerDado();
+		caderno.setNome(nome);
+
+		System.out.println("Digite Quantas Materias: M2, M5, M10");
+		String materia = lerDado();
+		caderno.setTipo(Materias.valueOf(materia.toUpperCase()));
+
+		System.out.println("Digite o preço(padrão 0.0)");
+		String preco = lerDado();
+		caderno.setPreco(Double.parseDouble(preco));
+
+		return caderno;
+	}
+
 	public static Pedido lerPedido(Banco banco) {
 
 		ProdutoNegocio produtoNegocio = new ProdutoNegocio(banco);
@@ -94,10 +98,6 @@ public final class LeitoraDados {
 		return pedido;
 	}
 
-	/**
-	 * Ler os dados do cupom e retorna um objeto a partir destes.
-	 * @return O cupom a partir dos dados de entrada
-	 */
 	public static Optional<Cupom> lerCupom(Banco banco) {
 
 		System.out.println("Caso queira utilizar algum cupom escolha entre: CUPOM2, CUPOM5, CUPOM7. Se não desejar, deixe em branco.");

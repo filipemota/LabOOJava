@@ -1,10 +1,7 @@
 package lab.laboojava.console;
 
 import lab.laboojava.basedados.Banco;
-import lab.laboojava.entidade.Cliente;
-import lab.laboojava.entidade.Cupom;
-import lab.laboojava.entidade.Livro;
-import lab.laboojava.entidade.Pedido;
+import lab.laboojava.entidade.*;
 import lab.laboojava.negocio.ClienteNegocio;
 import lab.laboojava.negocio.PedidoNegocio;
 import lab.laboojava.negocio.ProdutoNegocio;
@@ -68,10 +65,13 @@ public class Start {
                     produtoNegocio.excluir(codigoLivro);
                     break;
                 case "3":
-                    //TODO Cadastrar Caderno
+                    Caderno caderno = LeitoraDados.lerCaderno();
+                    produtoNegocio.salvar(caderno);
                     break;
                 case "4":
-                    //TODO Excluir Caderno
+                    System.out.println("Digite o código do Caderno");
+                    String codigoCaderno = LeitoraDados.lerDado();
+                    produtoNegocio.excluir(codigoCaderno);
                     break;
                 case "5":
                     Pedido pedido = LeitoraDados.lerPedido(banco);
@@ -92,7 +92,7 @@ public class Start {
                     produtoNegocio.listarTodos();
                     break;
                 case "8":
-                    //TODO Listar todos os Pedidos
+                    pedidoNegocio.listarTodos();
                     break;
                 case "9":
                     System.out.println(String.format("Volte sempre %s!", clienteLogado.getNome()));

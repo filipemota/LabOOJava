@@ -11,7 +11,6 @@ public class Caderno extends Produto{
     public void setNome(String nome) { this.nome = nome; }
 
     public Materias getTipo() { return tipo;  }
-
     public void setTipo(Materias tipo) { this.tipo = tipo; }
 
     @Override
