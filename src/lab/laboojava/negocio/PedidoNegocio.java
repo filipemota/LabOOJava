@@ -1,11 +1,10 @@
-package one.digitalinovation.laboojava.negocio;
+package lab.laboojava.negocio;
 
-import one.digitalinovation.laboojava.basedados.Banco;
-import one.digitalinovation.laboojava.entidade.Cupom;
-import one.digitalinovation.laboojava.entidade.Pedido;
-import one.digitalinovation.laboojava.entidade.Produto;
+import lab.laboojava.entidade.Pedido;
+import lab.laboojava.basedados.Banco;
+import lab.laboojava.entidade.Cupom;
+import lab.laboojava.entidade.Produto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**

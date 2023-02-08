@@ -1,11 +1,15 @@
-package one.digitalinovation.laboojava.console;
+package lab.laboojava.console;
 
-import one.digitalinovation.laboojava.basedados.Banco;
+import lab.laboojava.entidade.Cliente;
+import lab.laboojava.entidade.Cupom;
+import lab.laboojava.entidade.Livro;
+import lab.laboojava.entidade.Pedido;
+import lab.laboojava.negocio.ClienteNegocio;
+import lab.laboojava.basedados.Banco;
 import one.digitalinovation.laboojava.entidade.*;
-import one.digitalinovation.laboojava.negocio.ClienteNegocio;
-import one.digitalinovation.laboojava.negocio.PedidoNegocio;
-import one.digitalinovation.laboojava.negocio.ProdutoNegocio;
-import one.digitalinovation.laboojava.utilidade.LeitoraDados;
+import lab.laboojava.negocio.PedidoNegocio;
+import lab.laboojava.negocio.ProdutoNegocio;
+import lab.laboojava.utilidade.LeitoraDados;
 
 import java.util.Optional;
 

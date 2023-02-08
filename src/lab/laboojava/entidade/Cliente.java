@@ -1,4 +1,4 @@
-package one.digitalinovation.laboojava.entidade;
+package lab.laboojava.entidade;
 
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.

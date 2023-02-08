@@ -1,4 +1,4 @@
-package one.digitalinovation.laboojava.entidade;
+package lab.laboojava.entidade;
 
 /**
  * Classe que representa a entidade cupom. Este pode ser utilizado no ato do fechamento do pedido

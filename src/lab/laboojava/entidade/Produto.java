@@ -1,4 +1,4 @@
-package one.digitalinovation.laboojava.entidade;
+package lab.laboojava.entidade;
 
 /**
  * Classe que representa a abstração dos produtos que podem ser vendidos pela loja.

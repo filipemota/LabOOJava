@@ -1,4 +1,4 @@
-package one.digitalinovation.laboojava.entidade;
+package lab.laboojava.entidade;
 
 import java.util.ArrayList;
 import java.util.List;

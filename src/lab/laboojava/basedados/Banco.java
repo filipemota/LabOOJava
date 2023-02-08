@@ -1,9 +1,9 @@
-package one.digitalinovation.laboojava.basedados;
+package lab.laboojava.basedados;
 
-import one.digitalinovation.laboojava.entidade.Cliente;
-import one.digitalinovation.laboojava.entidade.Cupom;
-import one.digitalinovation.laboojava.entidade.Pedido;
-import one.digitalinovation.laboojava.entidade.Produto;
+import lab.laboojava.entidade.Cliente;
+import lab.laboojava.entidade.Pedido;
+import lab.laboojava.entidade.Produto;
+import lab.laboojava.entidade.Cupom;
 
 import java.util.ArrayList;
 import java.util.List;

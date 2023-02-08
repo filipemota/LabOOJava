@@ -1,12 +1,12 @@
-package one.digitalinovation.laboojava.utilidade;
+package lab.laboojava.utilidade;
 
-import one.digitalinovation.laboojava.basedados.Banco;
-import one.digitalinovation.laboojava.entidade.Pedido;
-import one.digitalinovation.laboojava.entidade.Livro;
-import one.digitalinovation.laboojava.entidade.Produto;
-import one.digitalinovation.laboojava.entidade.Cupom;
-import one.digitalinovation.laboojava.entidade.constantes.Genero;
-import one.digitalinovation.laboojava.negocio.ProdutoNegocio;
+import lab.laboojava.basedados.Banco;
+import lab.laboojava.entidade.Cupom;
+import lab.laboojava.entidade.Livro;
+import lab.laboojava.entidade.Pedido;
+import lab.laboojava.entidade.Produto;
+import lab.laboojava.negocio.ProdutoNegocio;
+import lab.laboojava.entidade.constantes.Genero;
 
 import java.util.Optional;
 import java.util.Scanner;

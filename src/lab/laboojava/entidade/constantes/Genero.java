@@ -1,4 +1,4 @@
-package one.digitalinovation.laboojava.entidade.constantes;
+package lab.laboojava.entidade.constantes;
 
 /**
  * Gêneros dos livros vendidos.

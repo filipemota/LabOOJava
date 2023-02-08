@@ -1,6 +1,6 @@
-package one.digitalinovation.laboojava.entidade;
+package lab.laboojava.entidade;
 
-import one.digitalinovation.laboojava.entidade.constantes.Genero;
+import lab.laboojava.entidade.constantes.Genero;
 
 /**
  * Classe que representa um livro, qual é uma especialização de um produto da loja.
