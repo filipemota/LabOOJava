@@ -7,7 +7,6 @@ import lab.laboojava.entidade.Produto;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public class PedidoNegocio {
 
@@ -42,7 +41,7 @@ public class PedidoNegocio {
         codigo = String.format(codigo, hoje.getYear(), hoje.getMonthValue(), bancoDados.getPedidos().length);
 
         novoPedido.setCodigo(codigo);
-        novoPedido.setCliente(bancoDados.getCliente());
+        novoPedido.setCliente(bancoDados.getClientes());
         novoPedido.setTotal(calcularTotal(novoPedido.getProdutos(), cupom));
         bancoDados.adicionarPedido(novoPedido);
         System.out.println("Pedido salvo com sucesso.");

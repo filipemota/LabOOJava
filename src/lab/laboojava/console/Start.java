@@ -24,7 +24,7 @@ public class Start {
 
         String opcao = "";
 
-        while(true) {
+        while (true) {
 
             if (clienteLogado == null) {
                 System.out.println(" ");
@@ -97,12 +97,12 @@ public class Start {
                 case "9":
                     System.out.println("Digite o código do livro:");
                     String buscaLivro = LeitoraDados.lerDado();
-                    System.out.println (produtoNegocio.consultar(buscaLivro).toString());
+                    System.out.println(produtoNegocio.consultar(buscaLivro).toString());
                     break;
                 case "10":
                     System.out.println("Digite o código do Caderno:");
                     String buscaCaderno = LeitoraDados.lerDado();
-                    System.out.println (produtoNegocio.consultar(buscaCaderno).toString());
+                    System.out.println(produtoNegocio.consultar(buscaCaderno).toString());
                     break;
                 case "11":
                     System.out.println("Digite o código numero do Pedido:");
@@ -128,14 +128,33 @@ public class Start {
 
         Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
 
-        if (resultado.isPresent()) {
+        if (resultado.isEmpty()) {
 
+            System.out.println("Usuário não cadastrado.");
+            System.out.println("Deseja Cadastrar um novo usuário? ");
+            System.out.println("##########################");
+            System.out.println("Selecione uma opção:");
+            System.out.println("1 -  Sim");
+            System.out.println("2 -  Não");
+
+            String opt = LeitoraDados.lerDado();
+            System.out.println(opt);
+
+            switch (opt) {
+                case "1":
+                    Cliente cliente = LeitoraDados.lerCliente();
+                    clienteNegocio.salvar(cliente);
+                    clienteLogado = cliente;
+                    break;
+                case "2":
+                    System.exit(0);
+                    break;
+
+            }
+        } else {
             Cliente cliente = resultado.get();
             System.out.println(String.format("Olá %s! Você está logado.", cliente.getNome()));
             clienteLogado = cliente;
-        } else {
-            System.out.println("Usuário não cadastrado.");
-            System.exit(0);
         }
     }
 }

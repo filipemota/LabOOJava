@@ -64,6 +64,22 @@ public final class LeitoraDados {
 		return caderno;
 	}
 
+	public static Cliente lerCliente() {
+
+		System.out.println("Cadastrando Cliente...");
+		Cliente cliente = new Cliente("","");
+
+		System.out.println("Digite o nome: ");
+		String nome = lerDado();
+		cliente.setNome(nome);
+
+		System.out.println("Digite o CPF: ");
+		String cpf = lerDado();
+		cliente.setCpf(cpf);
+
+		return cliente;
+	}
+
 	public static Pedido lerPedido(Banco banco) {
 
 		ProdutoNegocio produtoNegocio = new ProdutoNegocio(banco);

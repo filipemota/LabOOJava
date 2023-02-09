@@ -6,10 +6,7 @@ public class Cliente {
 
     private String cpf;
 
-    public Cliente() {
-        this.nome = "Fulano Fulaninho";
-        this.cpf = "123456789011";
-    }
+    public Cliente(String nome, String cpf) { this.nome = nome; this.cpf = cpf; }
 
     public String getNome() {
         return nome;
@@ -29,6 +26,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{ nome='" + nome + "'}";
+        return "Cliente{ Nome='" + nome + "'  CPF= '"+ cpf +"'}";
     }
 }
