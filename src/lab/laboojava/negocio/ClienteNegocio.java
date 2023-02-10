@@ -2,6 +2,7 @@ package lab.laboojava.negocio;
 
 import lab.laboojava.entidade.Cliente;
 import lab.laboojava.basedados.Banco;
+import lab.laboojava.entidade.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,25 +12,36 @@ public class ClienteNegocio {
 
     private Banco bancoDados;
 
-   List<Cliente> clientes = new ArrayList<Cliente>();
-
     public ClienteNegocio(Banco banco) {
         this.bancoDados = banco;
     }
 
     public Optional<Cliente> consultar(String cpf) {
 
-        if (bancoDados.getClientes().getCpf() != "") {
-            return Optional.of(bancoDados.getClientes());
+        Cliente clienteEncontrado = new Cliente("", "");
+
+        if (bancoDados.getCleintes().length == 0) {
+            System.out.println("Não existem Clientes cadastrados!");
         } else {
-            return Optional.empty();
+            for (Cliente clientes : bancoDados.getCleintes()) {
+                if (clientes.getCpf().equals(cpf)){ clienteEncontrado = clientes;}
+            }
+        }
+        return Optional.of(clienteEncontrado);
+    }
+
+    public void listarCliente() {
+        if (bancoDados.getCleintes().length == 0) {
+            System.out.println("Não existem Clientes cadastrados!");
+        } else {
+            for (Cliente clientes : bancoDados.getCleintes()) {
+                System.out.println(clientes.toString());
+            }
         }
     }
 
-
-
     public void salvar(Cliente novoCliente) {
-      bancoDados.adicionaCliente(novoCliente);
+        bancoDados.adicionaCliente(novoCliente);
     }
 
     public void excluir() {

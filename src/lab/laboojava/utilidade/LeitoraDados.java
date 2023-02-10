@@ -18,9 +18,7 @@ public final class LeitoraDados {
 	}
 
 	public static String lerDado() {
-		
 		String texto = scanner.nextLine();
-		
 		return texto;
 	}
 

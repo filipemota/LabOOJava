@@ -41,7 +41,7 @@ public class PedidoNegocio {
         codigo = String.format(codigo, hoje.getYear(), hoje.getMonthValue(), bancoDados.getPedidos().length);
 
         novoPedido.setCodigo(codigo);
-        novoPedido.setCliente(bancoDados.getClientes());
+        novoPedido.setCliente(bancoDados.getCliente());
         novoPedido.setTotal(calcularTotal(novoPedido.getProdutos(), cupom));
         bancoDados.adicionarPedido(novoPedido);
         System.out.println("Pedido salvo com sucesso.");

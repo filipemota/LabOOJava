@@ -36,7 +36,9 @@ public class Banco {
 
     }
 
-    public Cliente getClientes() { return cliente; }
+    public Cliente getCliente() { return cliente; }
+
+    public Cliente[] getCleintes(){ return clientes.toArray( new Cliente[clientes.size()]); }
 
     public Cupom[] getCupons() {
         return cupons.toArray(new Cupom[cupons.size()]);

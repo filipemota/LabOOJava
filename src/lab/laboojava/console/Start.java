@@ -45,11 +45,18 @@ public class Start {
             System.out.println("6 -  Excluir pedido");
             System.out.println("7 -  Listar produtos");
             System.out.println("8 -  Listar pedidos");
+            System.out.println("----------------------");
             System.out.println("9 -  Consultar Livro");
             System.out.println("10 - Consultar Caderno");
             System.out.println("11 - Consultar Pedido");
-            System.out.println("12 - Deslogar");
-            System.out.println("13 - Sair");
+            System.out.println("----------------------");
+            System.out.println("12 - Consultar Clientes");
+            System.out.println("13 - Listar Clientes");
+            System.out.println("14 - Cadasrar Clientes");
+            System.out.println("15 - Excluir Clientes");
+            System.out.println("----------------------");
+            System.out.println("16 - Deslogar");
+            System.out.println("17 - Sair");
             System.out.println("##########################");
 
             opcao = LeitoraDados.lerDado();
@@ -110,10 +117,36 @@ public class Start {
                     pedidoNegocio.consultar(buscaPedido);
                     break;
                 case "12":
+                    System.out.println("Consultar Clientes");
+                    System.out.println(" ");
+                    System.out.println("Digite o cpf:");
+                    System.out.println("#------------------#");
+                    String cpf = "";
+                    cpf = LeitoraDados.lerDado();
+                    Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
+                    Cliente cliente = resultado.get();
+                    if (cliente.getCpf().equals("")) System.out.println(String.format("Cliente não encontrado!"));
+                    else System.out.println(String.format("Cliente encontrado: Nome - " + cliente.getNome() + "    Cpf: " + cliente.getCpf()));
+
+                    break;
+                case "13":
+                    System.out.println("Listar Clientes");
+                    clienteNegocio.listarCliente();
+                    break;
+                case "14":
+                    System.out.println("Cadastrar Clientes");
+                    Cliente novoCliente = LeitoraDados.lerCliente();
+                    clienteNegocio.salvar(novoCliente);
+                    clienteLogado = novoCliente;
+                    break;
+                case "15":
+                    System.out.println("Excluir Clientes");
+                    break;
+                case "16":
                     System.out.println(String.format("Volte sempre %s!", clienteLogado.getNome()));
                     clienteLogado = null;
                     break;
-                case "13":
+                case "17":
                     System.out.println("Aplicação encerrada!");
                     System.exit(0);
                     break;
@@ -127,8 +160,9 @@ public class Start {
     private static void identificarUsuario(String cpf) {
 
         Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
+        Cliente cliente = resultado.get();
 
-        if (resultado.isEmpty()) {
+        if (cliente.getCpf().equals("")) {
 
             System.out.println("Usuário não cadastrado.");
             System.out.println("Deseja Cadastrar um novo usuário? ");
@@ -142,17 +176,15 @@ public class Start {
 
             switch (opt) {
                 case "1":
-                    Cliente cliente = LeitoraDados.lerCliente();
-                    clienteNegocio.salvar(cliente);
-                    clienteLogado = cliente;
+                    Cliente novoCliente = LeitoraDados.lerCliente();
+                    clienteNegocio.salvar(novoCliente);
+                    clienteLogado = novoCliente;
                     break;
                 case "2":
                     System.exit(0);
                     break;
-
             }
         } else {
-            Cliente cliente = resultado.get();
             System.out.println(String.format("Olá %s! Você está logado.", cliente.getNome()));
             clienteLogado = cliente;
         }
