@@ -17,20 +17,15 @@ public class ClienteNegocio {
     }
 
     public Optional<Cliente> consultar(String cpf) {
+        return Optional.of(localizaCliente(cpf));
+    }
 
-        Cliente clienteEncontrado = new Cliente("", "");
-
-        if (bancoDados.getCleintes().length == 0) {
-            System.out.println("Não existem Clientes cadastrados!");
-        } else {
-            for (Cliente clientes : bancoDados.getCleintes()) {
-                if (clientes.getCpf().equals(cpf)){ clienteEncontrado = clientes;}
-            }
-        }
-        return Optional.of(clienteEncontrado);
+    public void registrarUsuário(Cliente cliente){
+        bancoDados.setCliente(cliente);
     }
 
     public void listarCliente() {
+
         if (bancoDados.getCleintes().length == 0) {
             System.out.println("Não existem Clientes cadastrados!");
         } else {
@@ -42,10 +37,29 @@ public class ClienteNegocio {
 
     public void salvar(Cliente novoCliente) {
         bancoDados.adicionaCliente(novoCliente);
+        System.out.println("Cliente Excluido com sucesso");
     }
 
-    public void excluir() {
+    public void excluir(String cpf) {
+        bancoDados.removerCliente(localizaCliente(cpf));
+        System.out.println("Cliente Excluido com sucesso");
 
+    }
+
+    private Cliente localizaCliente(String cpf) {
+
+        Cliente clienteEncontrado = new Cliente("", "");
+
+        if (bancoDados.getCleintes().length == 0) {
+            System.out.println("Não existem Clientes cadastrados!");
+        } else {
+            for (Cliente clientes : bancoDados.getCleintes()) {
+                if (clientes.getCpf().equals(cpf)) {
+                    clienteEncontrado = clientes;
+                }
+            }
+        }
+        return clienteEncontrado;
     }
 
 }

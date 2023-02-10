@@ -123,11 +123,7 @@ public class Start {
                     System.out.println("#------------------#");
                     String cpf = "";
                     cpf = LeitoraDados.lerDado();
-                    Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
-                    Cliente cliente = resultado.get();
-                    if (cliente.getCpf().equals("")) System.out.println(String.format("Cliente não encontrado!"));
-                    else System.out.println(String.format("Cliente encontrado: Nome - " + cliente.getNome() + "    Cpf: " + cliente.getCpf()));
-
+                    consultarUsuario(cpf);
                     break;
                 case "13":
                     System.out.println("Listar Clientes");
@@ -141,6 +137,12 @@ public class Start {
                     break;
                 case "15":
                     System.out.println("Excluir Clientes");
+                    System.out.println(" ");
+                    System.out.println("Digite o cpf:");
+                    System.out.println("#------------------#");
+                    String cpfCliente = "";
+                    cpfCliente = LeitoraDados.lerDado();
+                    excluirUsuario(cpfCliente);
                     break;
                 case "16":
                     System.out.println(String.format("Volte sempre %s!", clienteLogado.getNome()));
@@ -157,10 +159,34 @@ public class Start {
         }
     }
 
-    private static void identificarUsuario(String cpf) {
-
+    private static Cliente retornaUsuario(String cpf){
         Optional<Cliente> resultado = clienteNegocio.consultar(cpf);
         Cliente cliente = resultado.get();
+        return cliente;
+    }
+
+    private static void consultarUsuario(String cpf) {
+
+        Cliente cliente = retornaUsuario(cpf);
+
+        if (cliente.getCpf().equals("")) System.out.println(String.format("Cliente não encontrado!"));
+        else
+            System.out.println(String.format("Cliente encontrado: Nome - " + cliente.getNome() + "    Cpf: " + cliente.getCpf()));
+    }
+
+    private static void excluirUsuario(String cpf) {
+
+        Cliente cliente = retornaUsuario(cpf);
+
+        if (cliente.getCpf().equals("")) System.out.println(String.format("Cliente não encontrado!"));
+        else
+            clienteNegocio.excluir(cpf);
+    }
+
+
+    private static void identificarUsuario(String cpf) {
+
+        Cliente cliente = retornaUsuario(cpf);
 
         if (cliente.getCpf().equals("")) {
 
@@ -187,6 +213,8 @@ public class Start {
         } else {
             System.out.println(String.format("Olá %s! Você está logado.", cliente.getNome()));
             clienteLogado = cliente;
+            clienteNegocio.registrarUsuário(cliente);
+
         }
     }
 }
